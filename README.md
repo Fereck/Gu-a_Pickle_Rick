@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7d17c77b-532d-4103-9629-256c265b32a0)# Guia_Pickle_Rick
+# Guia_Pickle_Rick
 Maquina para principiantes de TryHackMe, pensada para usar herramientas y técnicas básicas
 
 # Recursos requeridos en el procedimiento:
