@@ -34,10 +34,11 @@ Maquina para principiantes de TryHackMe, pensada para usar herramientas y técni
 - Puertos y servicios
 
 # Paso a paso 
+
+Primero nos conectamos a la VPN de TryHackMe usando [OpenVPN](https://openvpn.net/as-docs/linux.html#tutorial--connect-from-linux) una ves conectados procedemos con un escaneo de red. 
+
 ![image](https://github.com/user-attachments/assets/b857d3e8-d271-437c-ba27-0cc06009ccab)
 - *&* Ejecuta el comando en segundo plano.
-  
-Primero nos conectamos a la VPN de TryHackMe usando [OpenVPN](https://openvpn.net/as-docs/linux.html#tutorial--connect-from-linux) una ves conectados procedemos con un escaneo de red. 
 
 Una vez conectados haremos un esceneo del equipo con Nnmap 
  -  Nota: TryHackme nos da la IP del odjetivo.
