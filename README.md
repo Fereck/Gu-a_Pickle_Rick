@@ -169,11 +169,50 @@ ahora para tener una mejor interfaz ejecutamos el siguiente escript `script /dev
 
 lo que nos da una interfaz que nos muesta quienes somo y donde estamos. 
 
+ahora tenemos que escalar privilegios, por lo que intentamos un pasar al root. 
+en el caso de esta maquina tiene una vulnerabilidad muy grande, que consite en que para ser el root no necesita contraseña. 
+
+![image](https://github.com/user-attachments/assets/8a0f08c0-31ef-4de5-9608-e30fd5fcd98a)
+
+Como se pude ver con el simple hecho de intentarlo, me hago root. y ahora toca explorar los archivos y buscar los demas ingredientes.
 
 
+cuando hacemos un `ls` nos damos cuenta que seguimos en la pagina pero como root.
 
+![image](https://github.com/user-attachments/assets/1b01b6fa-e946-4334-b300-7fb90a9028fc)
 
+por lo que retrocedemos
 
+![image](https://github.com/user-attachments/assets/2b4e3b15-a7f6-467f-84a8-5d4d88569b8a)
+
+y listo tenemos el control completo de la maquina por lo que podemos explorar libremente. 
+
+si hacemos un `ls` en home nos damos cuenta que tiene dos usuarios. uno que deseria el que sostiene el servidor y el usuario de rick.
+
+![image](https://github.com/user-attachments/assets/ec4a74bd-0795-47ae-a64f-2862d2e906a8)
+
+nos vemos a el usuario `rick` y vemos que el tiene el segundo ingrediente.
+
+![image](https://github.com/user-attachments/assets/03a0abee-095b-4a9a-a1f9-6585f6765f24)
+
+aquie vemos algo curioso y es que no podemos ver que tipo de archivo pero vemos que tambien es el unico archivo, por lo que haremos un `cat *` para que 
+lea todo lo que este en ese usuario. y asi conseguimos el segundo ingrediente.
+
+![image](https://github.com/user-attachments/assets/32ed7f75-650c-40a4-8604-f49599e74536)
+
+### Segundo ingrediente: jerry tear. 
+
+Y Si nos ponemos a investigar nos damos cuenta que el 3th ingrediente se encuentra en el root. 
+
+![image](https://github.com/user-attachments/assets/ae89c448-4e3d-43d1-88f7-d33e81ac7d6d)
+
+![image](https://github.com/user-attachments/assets/0bb6d354-8217-418f-be5b-74d2dcd83a9e)
+
+y con eso seria todo. 
+
+### tercer ingrediente: fleeb juice
+
+para salirse de la maquina matan el proceso con CTRL + C.
 
 
 
